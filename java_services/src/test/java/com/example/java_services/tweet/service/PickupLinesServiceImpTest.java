@@ -3,7 +3,8 @@ package com.example.java_services.tweet.service;
 import com.example.java_services.tweet.domain.PickupLines;
 import com.example.java_services.tweet.repository.PickupLinesRepository;
 import org.junit.Before;
-import org.junit.Test;
+// import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
