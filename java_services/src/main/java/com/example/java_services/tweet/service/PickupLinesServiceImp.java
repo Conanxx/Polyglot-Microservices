@@ -3,8 +3,9 @@ package com.example.java_services.tweet.service;
 import com.example.java_services.tweet.domain.PickupLines;
 import com.example.java_services.tweet.repository.PickupLinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class PickupLinesServiceImp implements PickupLinesService {
 
     private PickupLinesRepository pklRepo;
