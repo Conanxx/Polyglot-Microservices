@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
@@ -34,13 +33,18 @@ class PickupLinesServiceImpTest {
     public void getPickupLinesTest(){
 
         // Given
-        given(rdService.generateRandomVal()).willReturn(3);
-        given(pklRepo.getPickupLinesContent()).willReturn(new ArrayList<String>(Arrays.asList("1", "2", "3", "4")));
 
-         // When
-         PickupLines pkl = pklServiceImp.getPickupLines();
+        PickupLines funny = new PickupLines("Well, here I am. What are your other two wishes?");
+        
+        given(rdService.generateRandomVal()).willReturn(3L);
+        given(pklRepo.findById(3L)).willReturn(Optional.of(funny));
+        
 
-        // // Then
-         assertThat(pkl.getContent()).isEqualTo("Just kidding!");
+        // When
+        Optional<PickupLines> pkl = pklServiceImp.getPickupLines();
+
+        //Then
+        assertThat(pkl).isEqualTo(Optional.of(funny));
+        // assertThat(pkl.getContent()).isEqualTo(funny.getContent());
     }
 }
