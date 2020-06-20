@@ -38,13 +38,13 @@ class PickupLinesServiceImpTest {
         
         given(rdService.generateRandomVal()).willReturn(3L);
         given(pklRepo.findById(3L)).willReturn(Optional.of(funny));
-        
 
         // When
         Optional<PickupLines> pkl = pklServiceImp.getPickupLines();
 
         //Then
         assertThat(pkl).isEqualTo(Optional.of(funny));
+        // assertThat(funny .getContent()).isEqualTo("hello");
         // assertThat(pkl.getContent()).isEqualTo(funny.getContent());
     }
 }

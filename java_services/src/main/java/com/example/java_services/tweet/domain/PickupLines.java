@@ -4,7 +4,8 @@ import lombok.Getter;
 
 import javax.persistence.Entity; 
 import javax.persistence.Column; 
-import javax.persistence.GeneratedValue; 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType; 
 import javax.persistence.Id; 
 
 
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 public class PickupLines {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="PICKUPLINE_ID")
     private Long id;
     
