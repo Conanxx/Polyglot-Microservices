@@ -35,8 +35,9 @@ class PickupLinesServiceImpTest {
         // Given
 
         PickupLines funny = new PickupLines("Well, here I am. What are your other two wishes?");
-        
-        given(rdService.generateRandomVal()).willReturn(3L);
+
+        given(pklRepo.count()).willReturn(4L);
+        given(rdService.generateRandomVal(4L)).willReturn(3L);
         given(pklRepo.findById(3L)).willReturn(Optional.of(funny));
 
         // When

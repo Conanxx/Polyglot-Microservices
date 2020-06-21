@@ -21,7 +21,8 @@ public class PickupLinesServiceImp implements PickupLinesService {
     
     @Override
     public Optional<PickupLines> getPickupLines() {
-        Long randomId = rdService.generateRandomVal();
+        Long count = pklRepo.count();
+        Long randomId = rdService.generateRandomVal(count);
         return pklRepo.findById(randomId);
     }
 }
