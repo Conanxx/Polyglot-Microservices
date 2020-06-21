@@ -1,7 +1,11 @@
 package com.example.java_services.tweet.repository;
 
-import java.util.ArrayList;
+import com.example.java_services.tweet.domain.PickupLines;
+import org.springframework.data.repository.CrudRepository;
 
-public interface PickupLinesRepository {
-    ArrayList<String> getPickupLinesContent();
+import java.util.Optional;
+
+public interface PickupLinesRepository extends CrudRepository<PickupLines, Long> {
+    Optional<PickupLines> findById(final Long id);
 }
+

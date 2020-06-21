@@ -3,8 +3,11 @@ package com.example.java_services.tweet.service;
 import com.example.java_services.tweet.domain.PickupLines;
 import com.example.java_services.tweet.repository.PickupLinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 
+@Service
 public class PickupLinesServiceImp implements PickupLinesService {
 
     private PickupLinesRepository pklRepo;
@@ -17,7 +20,9 @@ public class PickupLinesServiceImp implements PickupLinesService {
     }
     
     @Override
-    public PickupLines getPickupLines() {
-        return new PickupLines("Just kidding!");
+    public Optional<PickupLines> getPickupLines() {
+        Long count = pklRepo.count();
+        Long randomId = rdService.generateRandomVal(count);
+        return pklRepo.findById(randomId);
     }
 }

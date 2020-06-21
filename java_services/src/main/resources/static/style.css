@@ -1,0 +1,9 @@
+.header {
+    display: table;
+    margin: auto;
+}
+
+.con {
+    display: table-cell;
+    vertical-align: middle;
+}
